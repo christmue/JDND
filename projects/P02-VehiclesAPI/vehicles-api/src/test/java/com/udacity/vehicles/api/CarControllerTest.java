@@ -7,6 +7,8 @@ import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -143,6 +145,40 @@ public class CarControllerTest {
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .accept(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isNoContent());
+    }
+
+    @Test
+    public void updateCar() throws Exception {
+        Car car = getCar();
+        car.setId(1L);
+        car.setLocation(new Location(41.8332, 70.23533));
+        Details details = new Details();
+        Manufacturer manufacturer = new Manufacturer(100, "Volkswagen");
+        details.setManufacturer(manufacturer);
+        details.setModel("Golf");
+        details.setMileage(12030);
+        details.setExternalColor("Silver");
+        details.setBody("Station Wagon");
+        details.setEngine("1.4L TDI");
+        details.setFuelType("Diesel");
+        details.setModelYear(2019);
+        details.setProductionYear(2019);
+        details.setNumberOfDoors(4);
+        car.setDetails(details);
+        car.setCondition(Condition.NEW);
+
+        given(carService.save(any())).willReturn(car);
+        given(carService.findById(any())).willReturn(car);
+
+        mvc.perform(put("/cars/" + car.getId()).header("Content-Type",MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .content(json.write(car).getJson()))
+                .andExpect(status().isOk())
+                .andExpect(status().is2xxSuccessful())
+                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.condition").value("NEW"))
+                .andExpect(jsonPath("$.details.model").value("Golf"))
+                .andExpect(jsonPath("$.details.manufacturer.name").value("Volkswagen"))
+                .andDo(print());
     }
 
     /**
