@@ -1,0 +1,25 @@
+2020-09-23 19:38:34,753 INFO com.example.demo.SareetaApplication [main] Starting SareetaApplication on Christophs-MacBook-Pro.local with PID 5763 (started by cmueller in /Users/cmueller/Documents/_Workspaces/JDND/projects/P04-eCommerce Application/starter_code)
+2020-09-23 19:38:34,757 DEBUG com.example.demo.SareetaApplication [main] Running with Spring Boot v2.1.5.RELEASE, Spring v5.1.7.RELEASE
+2020-09-23 19:38:34,758 INFO com.example.demo.SareetaApplication [main] No active profile set, falling back to default profiles: default
+2020-09-23 19:38:38,014 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2020-09-23 19:38:38,015 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.19]
+2020-09-23 19:38:38,211 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2020-09-23 19:38:38,524 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-09-23 19:38:38,814 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-09-23 19:38:38,907 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-09-23 19:38:39,012 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.3.10.Final}
+2020-09-23 19:38:39,014 INFO org.hibernate.cfg.Environment [main] HHH000206: hibernate.properties not found
+2020-09-23 19:38:39,286 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-09-23 19:38:39,522 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-09-23 19:38:41,597 DEBUG com.example.demo.security.JWTAuthenticationVerificationFilter [main] Filter 'JWTAuthenticationVerificationFilter' configured for use
+2020-09-23 19:38:42,745 INFO com.example.demo.SareetaApplication [main] Started SareetaApplication in 9.172 seconds (JVM running for 10.665)
+2020-09-23 19:38:50,288 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-23 19:38:50,775 INFO com.example.demo.controllers.UserController [http-nio-8080-exec-2] New user Christoph has been created
+2020-09-23 19:41:14,726 DEBUG com.example.demo.security.JWTAuthenticationFilter [http-nio-8080-exec-5] Request is to process authentication
+2020-09-23 19:41:14,875 INFO org.hibernate.hql.internal.QueryTranslatorFactoryInitiator [http-nio-8080-exec-5] HHH000397: Using ASTQueryTranslatorFactory
+2020-09-23 19:41:31,007 INFO com.example.demo.controllers.CartController [http-nio-8080-exec-6] User Christoph added 1 item to cart com.example.demo.model.persistence.Cart@9c5b938.
+2020-09-23 19:41:52,669 INFO com.example.demo.controllers.CartController [http-nio-8080-exec-7] User Christoph removed 1 items from cart com.example.demo.model.persistence.Cart@604e976f.
+2020-09-23 19:42:05,612 INFO com.zaxxer.hikari.HikariDataSource [Thread-3] HikariPool-1 - Shutdown initiated...
+2020-09-23 19:42:05,618 INFO com.zaxxer.hikari.HikariDataSource [Thread-3] HikariPool-1 - Shutdown completed.
