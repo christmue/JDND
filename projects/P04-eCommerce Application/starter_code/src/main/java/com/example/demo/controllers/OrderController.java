@@ -35,7 +35,7 @@ public class OrderController {
 	public ResponseEntity<UserOrder> submit(@PathVariable String username) {
 		User user = userRepository.findByUsername(username);
 		if(user == null) {
-			log.warn("User {} does not exist.", username);
+			log.error("User {} does not exist.", username);
 			return ResponseEntity.notFound().build();
 		}
 		UserOrder order = UserOrder.createFromCart(user.getCart());
@@ -48,7 +48,7 @@ public class OrderController {
 	public ResponseEntity<List<UserOrder>> getOrdersForUser(@PathVariable String username) {
 		User user = userRepository.findByUsername(username);
 		if(user == null) {
-			log.warn("Could not get orders for user {}.", username);
+			log.error("Could not get orders for user {}.", username);
 			return ResponseEntity.notFound().build();
 		}
 		log.info("Got orders for user {}.", username);

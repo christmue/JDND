@@ -38,7 +38,7 @@ public class CartController {
 	public ResponseEntity<Cart> addTocart(@RequestBody ModifyCartRequest request) {
 		User user = userRepository.findByUsername(request.getUsername());
 		if(user == null) {
-			log.warn("User {} does not exist.", request.getUsername());
+			log.error("User {} does not exist.", request.getUsername());
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		Optional<Item> item = itemRepository.findById(request.getItemId());
@@ -58,7 +58,7 @@ public class CartController {
 	public ResponseEntity<Cart> removeFromcart(@RequestBody ModifyCartRequest request) {
 		User user = userRepository.findByUsername(request.getUsername());
 		if(user == null) {
-			log.warn("User {} does not exist.", request.getUsername());
+			log.error("User {} does not exist.", request.getUsername());
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		Optional<Item> item = itemRepository.findById(request.getItemId());
